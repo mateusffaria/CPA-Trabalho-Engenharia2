@@ -4,7 +4,6 @@ import javax.swing.JOptionPane;
 
 public class DAO_Formulario {
 
-	
 	Administracao a = new Administracao();
 	boolean admin = a.isAdmin();
 	private static int num = 1;
@@ -12,7 +11,6 @@ public class DAO_Formulario {
 	private boolean obrigatorio;
 	private int tipo;
 	private String nome;
-	
 	
 	public String getNome() {
 		return this.nome;
@@ -54,7 +52,7 @@ public class DAO_Formulario {
 			num++;
 			
 		}else {
-			JOptionPane.showMessageDialog(null, "Não é Administrador");
+			JOptionPane.showMessageDialog(null, "NÃ£o Ã© Administrador");
 		}
 	}
 	

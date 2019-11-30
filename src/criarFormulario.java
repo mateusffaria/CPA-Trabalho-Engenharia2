@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.ParseConversionEvent;
 
 /**
  * Servlet implementation class criarFormulario
@@ -34,7 +35,7 @@ public class criarFormulario extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String questao = request.getParameter("questao");
-		String tipoQuestao = request.getParameter("tipoQuestao");
+		int tipoQuestao = Integer.parseInt(request.getParameter("tipoQuestao"));
 		boolean obrigatorio = Boolean.parseBoolean(request.getParameter("obrigatorio"));
 		
 		DAO_Pergunta DP = new DAO_Pergunta();
