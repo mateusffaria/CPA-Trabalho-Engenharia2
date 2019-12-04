@@ -1,3 +1,4 @@
+package regraNegocio;
 import java.text.SimpleDateFormat;
 
 import javax.swing.JOptionPane;
@@ -48,7 +49,6 @@ public class DAO_Formulario {
 			setObrigatorio(obrigatorio);
 			setTexto(texto);
 			setTipo(tipo);
-			DP.criarPergunta(num, texto, tipo, obrigatorio);
 			num++;
 			
 		}else {

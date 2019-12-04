@@ -1,4 +1,6 @@
+package regraNegocio;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 public class Formulario {
 	private int codFormulario;
@@ -6,6 +8,13 @@ public class Formulario {
 	private Administracao autor;
 	private SimpleDateFormat dataInicio;
 	private SimpleDateFormat dataFim;
+	private ArrayList<Questao> questionario = new ArrayList<Questao>();
+	
+	
+	
+	
+	
+	
 	
 	public void setCodFormulario(int codFormulario) {
 		this.codFormulario = codFormulario;

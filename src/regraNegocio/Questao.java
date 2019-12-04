@@ -1,12 +1,11 @@
+package regraNegocio;
 
-public class Questao {
+public abstract class Questao {
 	private int numQuestao;
 	private String textoQuestao;
 	private boolean obrigatorio;
 
-	public int getNumQuestao() {
-		return numQuestao;
-	}
+
 	public void setNumQuestao(int numQuestao) {
 		this.numQuestao = numQuestao;
 	}
@@ -18,4 +17,13 @@ public class Questao {
 	}
 	
 	
+	public String getTextoQuestao() {
+		return textoQuestao;
+	}
+	public boolean getObrigatorio() {
+		return obrigatorio;
+	}
+	public int getNumQuestao() {
+		return numQuestao;
+	}	
 }

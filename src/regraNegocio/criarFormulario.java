@@ -1,3 +1,4 @@
+package regraNegocio;
 
 
 import java.io.IOException;
@@ -40,7 +41,6 @@ public class criarFormulario extends HttpServlet {
 		
 		DAO_Pergunta DP = new DAO_Pergunta();
 		
-		DP.criarPergunta(1, questao, tipoQuestao, obrigatorio);
 		
 		if(questao == null){
 			response.sendRedirect("erro.jsp");

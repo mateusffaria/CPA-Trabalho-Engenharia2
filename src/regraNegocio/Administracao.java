@@ -1,3 +1,4 @@
+package regraNegocio;
 
 public class Administracao extends Pessoa {
 	private String registro;
