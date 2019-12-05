@@ -13,9 +13,12 @@ public class Formulario {
 	
 	
 	
-	
-	
-	
+	public ArrayList<Questao> getQuestionario() {
+		return questionario;
+	}
+	public void setQuestionario(ArrayList<Questao> questionario) {
+		this.questionario = questionario;
+	}
 	public void setCodFormulario(int codFormulario) {
 		this.codFormulario = codFormulario;
 	}

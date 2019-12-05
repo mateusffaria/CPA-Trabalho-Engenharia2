@@ -1,8 +1,14 @@
 package testes;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+
 import regraNegocio.DAO_Pergunta;
 import regraNegocio.Dissertativa;
+import regraNegocio.Formulario;
 import regraNegocio.MultiResposta;
+import regraNegocio.Questao;
 
 public class Teste {
 
@@ -10,6 +16,7 @@ public class Teste {
 		Dissertativa questao1 = new Dissertativa();
 		DAO_Pergunta pergunta = new DAO_Pergunta();
 		MultiResposta questao2 = new MultiResposta();
+		Formulario form = new Formulario();
 		
 		questao1.setNumQuestao(1);
 		questao1.setObrigatorio(true);
@@ -54,7 +61,24 @@ public class Teste {
 		pergunta.mostrarTodasQuestoes();
 		
 		
+		ArrayList<Questao> questionario = pergunta.listarQuestoes();
+		SimpleDateFormat dataInicio = new SimpleDateFormat();
+		Date inicio = new Date();
+		dataInicio.format(inicio);
+
 		
+		SimpleDateFormat dataFim = new SimpleDateFormat();
+		Date fim = new Date();
+		dataFim.format(fim);
+		
+		form.setCodFormulario(1235);
+		form.setDataFim(dataInicio);
+		form.setDataFim(dataFim);
+		form.setNomeFormulario("Formulário Geral");
+		form.setQuestionario(questionario);
+		
+		System.out.println(form.getQuestionario().get(0).getTextoQuestao());
+		System.out.println(form.getQuestionario().get(1).getTextoQuestao());
 	}
 
 }
