@@ -21,8 +21,8 @@ public class MultiResposta extends Questao{
 		this.quantidadeDeCheck = quantidadeDeCheck;
 	}
 	
-	public void setAlternativas(String alternativa) {
-		alternativas.add(alternativa);
+	public void setAlternativas(ArrayList<String> alternativas) {
+		this.alternativas = alternativas;
 	}
 	
 	public ArrayList<String> getAlternativas() {

@@ -4,64 +4,49 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import regraNegocio.DAO_Pergunta;
+import javax.swing.JOptionPane;
+
 import regraNegocio.Dissertativa;
+import regraNegocio.EscalaLikert;
 import regraNegocio.Formulario;
 import regraNegocio.MultiResposta;
+import regraNegocio.MultiplaEscolha;
 import regraNegocio.Questao;
 
 public class Teste {
 
 	public static void main(String[] args) {
-		Dissertativa questao1 = new Dissertativa();
-		DAO_Pergunta pergunta = new DAO_Pergunta();
-		MultiResposta questao2 = new MultiResposta();
+		GravarPerguntas gravarQuestao = new GravarPerguntas();
+        String selecao;
+        selecao = JOptionPane.showInputDialog("Seleciona a opção das perguntas\n1) Dissertativa \n2) Escala Likert\n"
+                + "3) Multipla Escolha\n4) Multi Respostas\n14)Sair");
+        
+        int escolha = Integer.parseInt(selecao);
+        
+		switch (escolha) {
+		case 1:
+			Dissertativa questao1 = new Dissertativa();
+			gravarQuestao.setPergunta(questao1);
+		break;
+		case 2:
+			EscalaLikert questaoLikert = new EscalaLikert();
+			gravarQuestao.setPergunta(questaoLikert);
+		break;
+		case 3:
+			MultiplaEscolha questaoMultiplaEscolha = new MultiplaEscolha();
+			gravarQuestao.setPergunta(questaoMultiplaEscolha);
+		break;
+		case 4:
+			MultiResposta questaoMultiResposta = new MultiResposta();
+			gravarQuestao.setPergunta(questaoMultiResposta);
+		break;
+		default:
+			
+		break;
+		}
 		Formulario form = new Formulario();
 		
-		questao1.setNumQuestao(1);
-		questao1.setObrigatorio(true);
-		questao1.setTextoQuestao("Digite seu nome completo: ");
-		questao1.setQuantidadeDeCaracteres(150);
-		questao1.setPontuacao(1);
-				
-		pergunta.criarPergunta(questao1);
-
-		questao2.setNumQuestao(2);
-		questao2.setObrigatorio(true);
-		questao2.setTextoQuestao("Qual a cor do pelos do cavalo branco de napoleão?");
-		questao2.setQuantidadeDeCheck(3);
-		questao2.setAlternativas("Alternativa A: Azul");
-		questao2.setAlternativas("Alternativa B: Branco");
-		questao2.setAlternativas("Alternativa C: opção B");
-		questao2.setPontuacao(3);
-		
-		pergunta.criarPergunta(questao2);
-		
-		pergunta.mostrarTodasQuestoes();
-		
-		questao1.setNumQuestao(5);
-		questao1.setObrigatorio(true);
-		questao1.setTextoQuestao("Digite seu sobrenome: ");
-		questao1.setQuantidadeDeCaracteres(30);
-
-		pergunta.editarQuestao(questao1);
-		
-		questao2.setNumQuestao(2);
-		questao2.setObrigatorio(true);
-		questao2.setTextoQuestao("Qual a cor do pelos do cavalo branco de napoleão?");
-		questao2.setQuantidadeDeCheck(3);
-		questao2.getAlternativas().clear();
-		questao2.setAlternativas("Alternativa A: marrom");
-		questao2.setAlternativas("Alternativa B: laranja");
-		questao2.setAlternativas("Alternativa C: opcao antes de alterar");
-		questao2.setPontuacao(3);
-		
-		pergunta.editarQuestao(questao2);
-		
-		pergunta.mostrarTodasQuestoes();
-		
-		
-		ArrayList<Questao> questionario = pergunta.listarQuestoes();
+		ArrayList<Questao> questionario = gravarQuestao.getQuestionario();
 		SimpleDateFormat dataInicio = new SimpleDateFormat();
 		Date inicio = new Date();
 		dataInicio.format(inicio);
@@ -77,8 +62,7 @@ public class Teste {
 		form.setNomeFormulario("Formulário Geral");
 		form.setQuestionario(questionario);
 		
-		System.out.println(form.getQuestionario().get(0).getTextoQuestao());
-		System.out.println(form.getQuestionario().get(1).getTextoQuestao());
+		gravarQuestao.mostrarTodasQuestoes();
 	}
 
 }
